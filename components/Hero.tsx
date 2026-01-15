@@ -2,6 +2,11 @@
 import React from 'react';
 
 const Hero: React.FC = () => {
+  const scrollTo = (id: string) => {
+    const el = document.getElementById(id);
+    if (el) el.scrollIntoView({ behavior: 'smooth' });
+  };
+
   return (
     <section className="relative h-screen w-full flex items-center justify-center overflow-hidden">
       <div className="absolute inset-0 z-0">
@@ -28,7 +33,7 @@ const Hero: React.FC = () => {
           <button onClick={() => window.open('https://wa.me/573117039600')} className="bg-emerald-600 hover:bg-emerald-500 text-white px-12 py-5 rounded-full text-lg font-bold transition-all transform hover:scale-105 shadow-[0_10px_40px_rgba(16,185,129,0.3)] flex items-center justify-center gap-3">
             <i className="fas fa-calendar-check"></i> Apartar Mi Cupo
           </button>
-          <button className="glass px-12 py-5 rounded-full text-lg font-bold transition-all hover:bg-white/10 border border-white/20">
+          <button onClick={() => scrollTo('detalle-programa')} className="glass px-12 py-5 rounded-full text-lg font-bold transition-all hover:bg-white/10 border border-white/20">
             Ver Plan de Estudios
           </button>
         </div>

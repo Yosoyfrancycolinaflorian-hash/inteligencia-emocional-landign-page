@@ -1,20 +1,32 @@
 
-import React, { useState, useEffect, useRef } from 'react';
+import React from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import SectionInfo from './components/SectionInfo';
+import HelpSection from './components/HelpSection';
+import ProgramDetails from './components/ProgramDetails';
 import Services from './components/Services';
 import ChatBot from './components/ChatBot';
 import Footer from './components/Footer';
 
 const App: React.FC = () => {
+  const scrollTo = (id: string) => {
+    const el = document.getElementById(id);
+    if (el) el.scrollIntoView({ behavior: 'smooth' });
+  };
+
   return (
     <div className="min-h-screen selection:bg-emerald-500 selection:text-white">
       <Navbar />
+      
       <Hero />
+      
+      {/* Botón de ayuda rápida post-hero */}
+      <HelpSection />
+
       <SectionInfo />
       
-      {/* Transformation Visual Section: Anger (Storm) to Calm (Garden/Nature) */}
+      {/* Transformation Visual Section */}
       <section className="relative h-screen flex flex-col md:flex-row overflow-hidden border-y border-white/5">
         <div className="flex-1 relative group overflow-hidden border-r border-white/5">
           <img 
@@ -47,9 +59,11 @@ const App: React.FC = () => {
         </div>
       </section>
 
+      <ProgramDetails />
+
       <Services />
       
-      {/* Emotional Intelligence Experience Section with Family Background */}
+      {/* Testimonial/Quote Section */}
       <section className="relative h-screen flex items-center justify-center parallax" 
                style={{ backgroundImage: `url('https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&q=80&w=2000')` }}>
         <div className="absolute inset-0 bg-slate-950/80 backdrop-blur-sm"></div>
